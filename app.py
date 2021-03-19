@@ -104,7 +104,7 @@ def simulador():
 
 @app.route('/')
 def home():
-   return render_template('inicio.html') #inicioz.html
+   return render_template('inicioz.html') #inicioz.html
    pass
 
 if __name__ == "__main__":
