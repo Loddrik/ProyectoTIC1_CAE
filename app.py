@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 from flask_bootstrap import Bootstrap
-import algoritmo
 
 
 def create_app():
@@ -54,7 +53,6 @@ class Sim(db.Model):
       self.gastos_asociados = gastos_asociados
       self.seguro_desgravamen = seguro_desgravamen
       self.seguros_extra = seguros_extra
-      # HAsta aqui se pide en el formulario
       self.tir = tir
       self.cae = cae
       self.interes_total = interes_total
@@ -69,11 +67,7 @@ class Sim(db.Model):
 def sim():
    if request.method== 'POST':
       
-      sim = Sim(
-         request.form['name'],
-         request.form['nickname'],
-         request.form['passw']
-         )
+      sim = Sim(request.form['name'],request.form['nickname'],request.form['passw'])
       db.session.add(user)
       db.session.commit()
       #flash('Guardado correctamente')
