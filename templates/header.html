@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CAE</title>
+        <link rel="stylesheet" href="{{url_for("static",filename="stylesheet.css")}}"> 
+    </head>
+    <body>
+        <ul>
+            <li class="active"><a href="/">Inicio</a></li>
+            <li><a href="{{url_for('reg')}}">Register</a></li>
+            <li><a href="{{url_for('redes')}}">Redes</a></li>
+            <li><a href="{{url_for('APPCAE')}}">APPCAE</a></li>
+        </ul>
+        
+        
+        <div class="content">
+            {% block content %}{% endblock%}
+            
+        </div>
+
+        
+
+        <footer class="footer"><p>Developed by Loddrik</p></footer>
+        
+    </body>
+    
+</html>
