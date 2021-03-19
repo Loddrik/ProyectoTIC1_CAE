@@ -71,7 +71,7 @@ def sim():
       
       sim = Sim(
          request.form['name'],
-         request.form['monto],
+         request.form['monto'],
          request.form['interes'],
          request.form['meses'],
          request.form['gastos_asociados'],
