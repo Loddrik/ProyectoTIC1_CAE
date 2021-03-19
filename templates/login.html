@@ -4,9 +4,9 @@
 
 {%block content%}
 <div class="portada">
-    <h1>Log-in</h1>
+    <h1>App</h1>
     
-    <form action="{{url_for('reg')}}" method="post">
+    <form action="{{url_for('sim')}}" method="post">
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name"><br>
         <br>
@@ -26,7 +26,7 @@
           <th>Nickname</th>
           <th>Password</th>
         </tr>
-        {% for r in usuarios: %}
+        {% for r in simulaciones: %}
         <tr>
             <td>{{ r.name }}</td> 
             <td>{{ r.nickname }}</td> 

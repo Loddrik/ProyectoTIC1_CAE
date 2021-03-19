@@ -20,7 +20,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #create db model
-class Users(db.Model):
+class Sim(db.Model):
    
    id = db.Column('algo_id',db.Integer, primary_key = True)
 
@@ -63,24 +63,21 @@ class Users(db.Model):
 
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def reg():
+@app.route('/app', methods=['GET', 'POST'])
+def sim():
    if request.method== 'POST':
-      if not request.form['name'] or not request.form['passw'] or not request.form['nickname']:
-         return rediret('/register')
-      #Login
-      else:
-         user = Users(request.form['name'],request.form['nickname'],request.form['passw'])
-         db.session.add(user)
-         db.session.commit()
-         #flash('Guardado correctamente')
-         return redirect('/register')
+      
+      sim = Sim(request.form['name'],request.form['nickname'],request.form['passw'])
+      db.session.add(user)
+      db.session.commit()
+      #flash('Guardado correctamente')
+      return redirect('/app')
 
    else:
       #Register
-      usuarios = Users.query.all()
+      simulaciones = Sim.query.all()
 
-      return render_template('login.html',usuarios = usuarios)
+      return render_template('login.html',simulaciones = simulaciones)
 
 
 @app.route('/appcae')
