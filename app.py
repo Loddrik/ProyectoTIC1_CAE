@@ -98,9 +98,13 @@ def APPCAE():
 def redes():
    return render_template('redes.html')
 
+@app.route('/simulador', methods=['GET', 'POST'])
+def simulador():
+   return render_template('simulador.html')
+
 @app.route('/')
 def home():
-   return render_template('inicio.html')
+   return render_template('inicio.html') #inicioz.html
    pass
 
 if __name__ == "__main__":

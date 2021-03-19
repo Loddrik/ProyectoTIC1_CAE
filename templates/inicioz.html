@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-1">Simulador CAE</h1>
+    <picture>
+        <img src="https://www.crecemujer.cl/sites/default/files/styles/medium/public/captura_de_pantalla_2017-07-18_a_las_17.32.42.png?itok=waaC-0VX"
+            class="avatar img-fluid img-thumbnail" alt="img-principal">
+    </picture>
+    <div class="pricing-header px-3 py-3 mx-auto text-center">
+
+        <a href= "{{url_for('simulador')}}" class="btn btn-success btn-lg btn-block col-md-12 mb-3 px-3 py-3  text-center" role="button">Simular</a>
+    </div>
+</div>
+
+{% endblock %}
