@@ -68,11 +68,11 @@ class Sim(db.Model):
 def sim():
    if request.method== 'POST':
       
-         sim = Sim(
-      request.form['name'],
-      request.form['nickname'],
-      request.form['passw']
-      )
+      sim = Sim(
+         request.form['name'],
+         request.form['nickname'],
+         request.form['passw']
+         )
       db.session.add(user)
       db.session.commit()
       #flash('Guardado correctamente')
