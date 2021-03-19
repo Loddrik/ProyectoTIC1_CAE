@@ -2,9 +2,17 @@ from flask import Flask,render_template,request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+from flask_bootstrap import Bootstrap
 
 
-app = Flask(__name__)
+def create_app():
+   app = Flask(__name__)
+   Bootstrap(app)
+
+   return app
+
+
+app = create_app()
 #Ruta de la base de datos
 app.config["SQLALCHEMY_DATABASE_URI"]= 'sqlite:///nuevabd.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -64,4 +72,4 @@ def home():
    pass
 
 if __name__ == "__main__":
-    app.run()
+	app.run(debug=True)
