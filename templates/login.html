@@ -10,8 +10,23 @@
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name"><br>
         <br>
-        <label for="nickname">Nickname</label>
-        <input type="text" id="name" name="nickname"><br><br>
+        <label for="monto">Monto</label>
+        <input type="text" id="monto" name="monto"><br><br>
+        <br>
+        <label for="interes">Interes</label>
+        <input type="text" id="interes" name="interes"><br><br>
+        <br>
+        <label for="meses">Meses</label>
+        <input type="text" id="meses" name="meses"><br><br>
+        <br>
+        <label for="gastos_asociados">Gastos asociados</label>
+        <input type="text" id="gastos_asociados" name="gastos_asociados"><br><br>
+        <br>
+        <label for="seguro_desgravamen">Seguro desgravamen</label>
+        <input type="text" id="seguro_desgravamen" name="seguro_desgravamen"><br><br>
+        <br>
+        <label for="seguros_extra">Seguro extra</label>
+        <input type="text" id="seguros_extra" name="seguros_extra"><br><br>
         <br>
         <label for="passw">password</label>
         <input type="password" id="edad" name="passw"><br><br>
@@ -23,13 +38,23 @@
     <table style="width:100%">
         <tr>
           <th>Name</th>
-          <th>Nickname</th>
+          <th>M</th>
+          <th>i</th>
+          <th>m</th>
+          <th>g</th>
+          <th>s</th>
+          <th>s</th>
           <th>Password</th>
         </tr>
         {% for r in simulaciones: %}
         <tr>
             <td>{{ r.name }}</td> 
-            <td>{{ r.nickname }}</td> 
+            <td>{{ r.monto }}</td> 
+            <td>{{ r.interes }}</td> 
+            <td>{{ r.meses }}</td> 
+            <td>{{ r.gastos_asociados }}</td> 
+            <td>{{ r.seguro_desgravamen }}</td> 
+            <td>{{ r.seguros_extra }}</td> 
             <td>{{ r.passw }}</td> 
             <td><a type="button"href="{{url_for('redes')}}"></td>
             
