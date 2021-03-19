@@ -70,8 +70,13 @@ def sim():
       
       sim = Sim(
          request.form['name'],
-         request.form['nickname'],
-         request.form['passw']
+         request.form['monto'],
+         request.form['interes'],
+         request.form['meses'],
+         request.form['gastos_asociados'],
+         request.form['seguro_desgravamen'],
+         request.form['seguros_extra'],
+         request.form['passw'],
          )
       db.session.add(user)
       db.session.commit()
