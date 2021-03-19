@@ -10,6 +10,10 @@
     <form method="POST" action="guardar.php">
         <div class="form-group row">
             <div class="col-sm-4 col-form-label">
+                <label class ="text-light">Nombre simulación</label>
+                <input name ="creditname" type="text" class="form-control" placeholder="Santader" required>
+            </div>
+            <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Monto de crédito</label>
                 <input name ="creditamount" min=0 max=1000000 type="number" class="form-control" placeholder="1000000" required>
             </div>
@@ -20,6 +24,10 @@
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Gastos asociados</label>
                 <input name ="creditexpense" min=0 max=10000000 type="number" class="form-control" placeholder="5000" required>
+            </div>
+            <div class="col-sm-4 col-form-label">
+                <label class ="text-light">Seguro</label>
+                <input name ="creditinsurance" min=0 max=10000000 type="number" class="form-control" placeholder="6000" required>
             </div>
         </div>
         <button class="btn btn-primary col-md-6 mb-3" name="simulate" type="submit">Simular</button>
