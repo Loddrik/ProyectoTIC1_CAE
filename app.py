@@ -27,7 +27,7 @@ class Users(db.Model):
    nombre = db.Column(db.String(100))
    monto = db.Column(db.Integer())
    interes = db.Column(db.Float())
-   meses = dg.Column(db.Integer())
+   meses = db.Column(db.Integer())
    gastos_asociados = db.Column(db.Integer)
    seguro_desgravamen = db.Column(db.Integer())
    seguros_extra = db.Column(db.Integer())
