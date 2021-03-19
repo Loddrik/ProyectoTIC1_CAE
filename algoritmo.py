@@ -79,10 +79,10 @@ if __name__== "__main__":
 
     print('tir : ' + str(tir))
     print(str(CAE))
-    print(str(acumulados))
-    print(str(total))
-    print(str(costo_total))
-    print(str(cuota))
+    print(str(int(round(acumulados))))
+    print(str(int(round(total))))
+    print(str(int(round(costo_total))))
+    print(str(int(round(cuota))))
 
 
 
