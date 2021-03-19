@@ -1,0 +1,4 @@
+Para entender como usar bootstrap:
+
+https://pythonhosted.org/Flask-Bootstrap/basic-usage.html
+https://getbootstrap.com/2.3.1/base-css.html
