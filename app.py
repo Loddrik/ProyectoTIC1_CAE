@@ -87,7 +87,7 @@ def sim():
       #Register
       simulaciones = Sim.query.all()
 
-      return render_template('login.html',simulaciones = simulaciones)
+      return render_template('simulador.html',simulaciones=simulaciones)
 
 
 @app.route('/appcae')
@@ -105,6 +105,7 @@ def redes():
 
 @app.route('/simulador', methods=['GET', 'POST'])
 def simulador():
+
    return render_template('simulador.html')
 
 @app.route('/')
