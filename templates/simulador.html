@@ -63,6 +63,7 @@
                     <th scope="col">Seguros extra</th>
                     <th scope="col">Monto bruto crédito</th>
                     <th scope="col">Costo total</th>
+                    <th scope="col"></th>
 
                 </tr>
                 
@@ -77,6 +78,11 @@
                     <td>{{ s.seguros_extra }}</td>
                     <td>{{ s.monto_bruto }}</td>
                     <td>{{ s.monto_final }}</td>
+                    <div>
+                        <td><button class="btn btn-primary col-md-6 mb-3" style="height:40px;width:100px">edit</button>
+                        <button class="btn btn-secondary col-md-6 mb-3" style="height:40px;width:130px">delete</button></td>
+                    </div>
+                    
 
                 </tr>
                 {% endfor %}
