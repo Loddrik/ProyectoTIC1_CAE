@@ -16,7 +16,7 @@ div {text-align: center;}
         <div class="form-group row">
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Nombre simulación</label>
-                <input name ="creditname" type="text" class="form-control" placeholder="Santader" required>
+                <input name ="creditname" type="text" class="form-control" placeholder="Santader" maxlength="40" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Monto de crédito</label>
@@ -68,7 +68,7 @@ div {text-align: center;}
                     <th scope="col">Seguros extra</th>
                     <th scope="col">Monto bruto crédito</th>
                     <th scope="col">Costo total</th>
-                    <th scope="col"></th>
+                    <th scope="col">_________________</th>
 
                 </tr>
                 
@@ -85,10 +85,10 @@ div {text-align: center;}
                     <td>${{ s.monto_final }}</td>
                     <div>
                        <td>
-                        <button class="btn btn-primary col-md-6 mb-3" style="height:40px;width:100px" type="submit">edit</button>
-                        <form action="/delete/{{s.id}}" method="get">
-                        <button class="btn btn-secondary col-md-6 mb-3" style="height:40px;width:130px" type="submit">delete</button>
-                        </form>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">edit</button>
+                            <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">delete</a>
+                        </div>
                         </td>
                     </div>
                     
