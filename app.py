@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 from flask_bootstrap import Bootstrap
-import algoritmo
+from algoritmo import Algoritmo
 
 def create_app():
    app = Flask(__name__)
@@ -64,10 +64,11 @@ def sim():
    if request.method == 'POST':
       nombre = str(request.form['creditname'])
       capital = int(request.form['creditamount'])
-      interes = float(request.form['creidtinterest'])
+      interes = float(request.form['creditinterest'])
       meses = int(request.form['creditterm'])
       gastos_asociados = int(request.form['creditexpense'])
-      seguro_desgravamen = int(request.form['credirinsurance'])
+      seguro_desgravamen = int(request.form['creditinsurance'])
+
       seguros_extra = int(request.form['creditinsuranceextra'])
       
       tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(capital,interes,
@@ -80,7 +81,7 @@ def sim():
       return redirect('/simulador')
 
    else:
-      #Register
+      #Register/
       simulaciones = Sim.query.all()
       
 

@@ -19,7 +19,7 @@
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Plazo en meses</label>
-                <input name ="creditterm" min=6 max=48 type="number" class="form-control" placeholder="1000000" required>
+                <input name ="creditterm" min=2 max=48 type="number" class="form-control" placeholder="1000000" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Interes de crédito</label>
@@ -53,6 +53,7 @@
             <thead>
                 <tr class="table-active" style="font-size:14px">
                     <th scope="col">Institución</th>
+                    <th scope="col">Monto Solicitado</th>
                     <th scope="col">CAE</th>
                     <th scope="col">Tasa de interés mensual</th>
                     <th scope="col">Gastos asociados</th>
@@ -67,10 +68,11 @@
                 <tr class="table-active" style="font-size:14px">
                     <td>{{ s.nombre }}</td>
                     <td>{{ s.monto }}</td>
+                    <td>{{ s.cae }}</td>
                     <td>{{ s.interes }}</td>
                     <td>{{ s.gastos_asociados }}</td>
                     <td>{{ s.seguro_desgravamen }}</td>
-                    <td>{{ s.seguro_extra }}</td>
+                    <td>{{ s.seguros_extra }}</td>
                     <td>{{ s.monto_bruto }}</td>
                     <td>{{ s.monto_final }}</td>
 

@@ -39,7 +39,7 @@ def ajustar_interes(interes):
 # def algoritmo_edit
 # def reestructurar arreglo
 
-def ALgoritmo(capital,i,meses,gastosAsociados,seguro):
+def Algoritmo(capital,i,meses,gastosAsociados,seguro):
     #[monto, interes,meses,gastos_asociados,total_seguro]
     
 
