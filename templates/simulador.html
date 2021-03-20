@@ -17,7 +17,7 @@ div {text-align: center;}
 
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Nombre simulación</label>
-                <input name ="creditname" type="text" class="form-control" placeholder="Santader" maxlength="40" required>
+                <input name ="creditname" type="text" pattern="[a-zA-Z0-9\s]{1,20}" class="form-control" placeholder="Santader" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Monto de crédito</label>
@@ -60,8 +60,9 @@ div {text-align: center;}
     
             <thead>
                 <tr class="table-active" style="font-size:14px">
-                    <th scope="col">Institución</th>
+                    <th scope="col">Simulación</th>
                     <th scope="col">Monto Solicitado</th>
+                    <th scope="col">N° Cuotas</th>
                     <th scope="col">CAE</th>
                     <th scope="col">Tasa de interés mensual</th>
                     <th scope="col">Gastos asociados</th>
@@ -74,9 +75,10 @@ div {text-align: center;}
                 </tr>
                 
                 {%for s in simulaciones%} 
-                <tr class="table-active" style="font-size:20px">
+                <tr class="table-active" style="font-size:13px">
                     <td>{{ s.nombre }}</td>
                     <td>${{ s.monto }}</td>
+                    <td>{{ s.meses }}</td>
                     <td>{{ s.cae }}%</td>
                     <td>{{ s.interes }}%</td>
                     <td>${{ s.gastos_asociados }}</td>

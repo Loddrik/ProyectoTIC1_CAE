@@ -101,14 +101,24 @@ def delete(id):
 def edit(id):
    credit_to_edit = Sim.query.get_or_404(id)
    if request.method == 'POST':
-      credit_to_edit.nombre = request.form['creditname']
-      credit_to_edit.monto = request.form['creditamount']
-      credit_to_edit.interes = request.form['creditinterest']
-      credit_to_edit.meses = request.form['creditterm']
-      credit_to_edit.gastos_asociados = request.form['creditexpense']
-      credit_to_edit.seguro_desgravamen = request.form['creditinsurance']
-      credit_to_edit.seguros_extra = request.form['creditinsuranceextra']
+      credit_to_edit.nombre = str(request.form['creditname'])
+      credit_to_edit.monto = int(request.form['creditamount'])
+      credit_to_edit.interes = float(request.form['creditinterest'])
+      credit_to_edit.meses = int(request.form['creditterm'])
+      credit_to_edit.gastos_asociados = int(request.form['creditexpense'])
+      credit_to_edit.seguro_desgravamen = int(request.form['creditinsurance'])
+      credit_to_edit.seguros_extra = int(request.form['creditinsuranceextra'])
       
+      tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(credit_to_edit.monto, credit_to_edit.interes,
+      credit_to_edit.meses, credit_to_edit.gastos_asociados, credit_to_edit.seguro_desgravamen + credit_to_edit.seguros_extra)
+
+      credit_to_edit.cuota = int(cuota)
+      credit_to_edit.tir = tir
+      credit_to_edit.cae = cae
+      credit_to_edit.interes_total = int(interes_total)
+      credit_to_edit.monto_bruto = int(monto_bruto)
+      credit_to_edit.monto_final = int(monto_final)
+
       try:
          db.session.commit()
          return redirect('/simulador')
