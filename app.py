@@ -98,6 +98,19 @@ def delete(id):
       except:
          return 'Hubo un problema, no se pudo eliminar la simulacion'
          
+@app.route('/edit/<int:id>',methods=['GET','POST'])
+def edit(id):
+   task_to_edit = Sim.query.get_or_404(id)
+   if request.method == 'POST':
+      task_to_edit.content = request.form['content']
+      
+      try:
+         db.session.commit()
+         return redirect('/simulador')
+      except:
+         return 'Hubo un error actualizando la simulacion'
+   else:
+      return render_template('edit.html', task_to_edit = task_to_edit)
          
          
 @app.route('/simulador', methods=['GET', 'POST'])
