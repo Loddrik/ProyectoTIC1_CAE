@@ -88,11 +88,18 @@ def sim():
       return render_template('simulador.html',simulaciones = simulaciones)
 
 
-
-
-
-
-
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+      task_to_delete = Sim.query.get_or_404(id)
+      try:
+         db.session.delete(task_to_delete) 
+         db.session.commit()
+         return redirect('/simulador')
+      except:
+         return 'Hubo un problema, no se pudo eliminar la simulacion'
+         
+         
+         
 @app.route('/simulador', methods=['GET', 'POST'])
 def simulador():
 

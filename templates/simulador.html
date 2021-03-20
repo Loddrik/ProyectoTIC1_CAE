@@ -79,8 +79,12 @@
                     <td>{{ s.monto_bruto }}</td>
                     <td>{{ s.monto_final }}</td>
                     <div>
-                        <td><button class="btn btn-primary col-md-6 mb-3" style="height:40px;width:100px">edit</button>
-                        <button class="btn btn-secondary col-md-6 mb-3" style="height:40px;width:130px">delete</button></td>
+                       <td>
+                        <button class="btn btn-primary col-md-6 mb-3" style="height:40px;width:100px" type="submit">edit</button>
+                        <form action="/delete/{{s.id}}" method="get">
+                        <button class="btn btn-secondary col-md-6 mb-3" style="height:40px;width:130px" type="submit">delete</button>
+                        </form>
+                        </td>
                     </div>
                     
 
