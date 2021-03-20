@@ -31,21 +31,15 @@ class Sim(db.Model):
    gastos_asociados = db.Column(db.Integer)
    seguro_desgravamen = db.Column(db.Integer())
    seguros_extra = db.Column(db.Integer())
+   cuota = db.Column(db.Integer())
    tir = db.Column(db.Float())
    cae = db.Column(db.Float())
-   interes_total = db.Column(db.Float())
-   monto_bruto = db.Column(db.Float())
-   monto_final = db.Column(db.Float())
+   interes_total = db.Column(db.Integer())
+   monto_bruto = db.Column(db.Integer())
+   monto_final = db.Column(db.Integer())
    
 
-
-
-
-
-   
-   passw = db.Column(db.String(20))
-
-   def __init__(self, nombre,monto,interes,meses,gastos_asociados,seguro_desgravamen,seguros_extra,tir,cae,interes_total,monto_bruto,monto_final):
+   def __init__(self, nombre,monto,interes,meses,gastos_asociados,seguro_desgravamen,seguros_extra,cuota,tir,cae,interes_total,monto_bruto,monto_final):
       self.nombre = nombre
       self.monto = monto
       self.interes = interes
@@ -54,6 +48,7 @@ class Sim(db.Model):
       self.seguro_desgravamen = seguro_desgravamen
       self.seguros_extra = seguros_extra
       # HAsta aqui se pide en el formulario
+      self.cuota = cuota
       self.tir = tir
       self.cae = cae
       self.interes_total = interes_total
@@ -63,45 +58,39 @@ class Sim(db.Model):
 
 
 
-
-@app.route('/app', methods=['GET', 'POST'])
+@app.route('/simulador', methods=['GET', 'POST'])
 def sim():
-   if request.method== 'POST':
+
+   if request.method == 'POST':
+      nombre = str(request.form['creditname'])
+      capital = int(request.form['creditamount'])
+      interes = float(request.form['creidtinterest'])
+      meses = int(request.form['creditterm'])
+      gastos_asociados = int(request.form['creditexpense'])
+      seguro_desgravamen = int(request.form['credirinsurance'])
+      seguros_extra = int(request.form['creditinsuranceextra'])
       
-      sim = Sim(
-         request.form['name'],
-         request.form['monto'],
-         request.form['interes'],
-         request.form['meses'],
-         request.form['gastos_asociados'],
-         request.form['seguro_desgravamen'],
-         request.form['seguros_extra'],
-         request.form['passw'],
-         )
-      db.session.add(user)
+      tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(capital,interes,
+      meses,gastos_asociados,seguro_desgravamen+seguros_extra)
+
+      sim = Sim(nombre,capital,interes,meses,gastos_asociados,seguro_desgravamen,seguros_extra,int(cuota),tir,cae,int(interes_total),int(monto_bruto),int(monto_final))
+      db.session.add(sim)
       db.session.commit()
-      #flash('Guardado correctamente')
-      return redirect('/app')
+      # flash('Guardado correctamente')
+      return redirect('/simulador')
 
    else:
       #Register
       simulaciones = Sim.query.all()
+      
 
-      return render_template('simulador.html',simulaciones=simulaciones)
-
-
-@app.route('/appcae')
-def APPCAE():
-  #si existen simulaciones:
-   return render_template('app.html')
-  #si no:
-   #return  render template()
+      return render_template('simulador.html',simulaciones = simulaciones)
 
 
 
-@app.route('/redes', methods=['GET', 'POST'])
-def redes():
-   return render_template('redes.html')
+
+
+
 
 @app.route('/simulador', methods=['GET', 'POST'])
 def simulador():

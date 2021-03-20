@@ -73,16 +73,16 @@ def ALgoritmo(capital,i,meses,gastosAsociados,seguro):
 
     
 
-if __name__== "__main__":
+# if __name__== "__main__":
 
-    tir,CAE,acumulados,total,costo_total,cuota = ALgoritmo(1000000,1.99,12,8839,8589)
+#     tir,CAE,acumulados,total,costo_total,cuota = ALgoritmo(1000000,1.99,12,8839,8589)
 
-    print('tir : ' + str(tir))
-    print(str(CAE))
-    print(str(int(round(acumulados))))
-    print(str(int(round(total))))
-    print(str(int(round(costo_total))))
-    print(str(int(round(cuota))))
+#     print('tir : ' + str(tir))
+#     print(str(CAE))
+#     print(str(int(round(acumulados))))
+#     print(str(int(round(total))))
+#     print(str(int(round(costo_total))))
+#     print(str(int(round(cuota))))
 
 
 
