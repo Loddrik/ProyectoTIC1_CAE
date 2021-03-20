@@ -68,7 +68,6 @@ def sim():
       meses = int(request.form['creditterm'])
       gastos_asociados = int(request.form['creditexpense'])
       seguro_desgravamen = int(request.form['creditinsurance'])
-
       seguros_extra = int(request.form['creditinsuranceextra'])
       
       tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(capital,interes,
@@ -100,9 +99,15 @@ def delete(id):
          
 @app.route('/edit/<int:id>',methods=['GET','POST'])
 def edit(id):
-   task_to_edit = Sim.query.get_or_404(id)
+   credit_to_edit = Sim.query.get_or_404(id)
    if request.method == 'POST':
-      task_to_edit.content = request.form['content']
+      credit_to_edit.nombre = request.form['creditname']
+      credit_to_edit.monto = request.form['creditamount']
+      credit_to_edit.interes = request.form['creditinterest']
+      credit_to_edit.meses = request.form['creditterm']
+      credit_to_edit.gastos_asociados = request.form['creditexpense']
+      credit_to_edit.seguro_desgravamen = request.form['creditinsurance']
+      credit_to_edit.seguros_extra = request.form['creditinsuranceextra']
       
       try:
          db.session.commit()
@@ -110,7 +115,7 @@ def edit(id):
       except:
          return 'Hubo un error actualizando la simulacion'
    else:
-      return render_template('edit.html', task_to_edit = task_to_edit)
+      return render_template('edit.html', credit_to_edit = credit_to_edit)
          
          
 @app.route('/simulador', methods=['GET', 'POST'])

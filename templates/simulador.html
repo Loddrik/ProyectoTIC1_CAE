@@ -84,14 +84,12 @@ div {text-align: center;}
                     <td>${{ s.seguros_extra }}</td>
                     <td>${{ s.monto_bruto }}</td>
                     <td>${{ s.monto_final }}</td>
-                    <div>
-                       <td>
-                        <div class="d-grid gap-2 d-md-block">
-                            <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">edit</button>
-                            <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">delete</a>
-                        </div>
-                        </td>
+                    <td>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">edit</button>
+                        <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">delete</a>
                     </div>
+                    </td>
                     
 
                 </tr>

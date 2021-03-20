@@ -12,37 +12,37 @@ div {text-align: center;}
     <div class="alert alert-primary" role="alert">
         Ingrese los datos para poder simular.
     </div>
-    <form method="post" action="{{url_for('sim')}}">
+    <form method="POST" action="{{credit_to_edit.id}}">
         <div class="form-group row">
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Nombre simulación</label>
-                <input name ="creditname" type="text" class="form-control" value="{{task_to_edit.creditname}}" required>
+                <input name ="creditname" type="text" class="form-control" value="{{credit_to_edit.nombre}}" id="creditname" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Monto de crédito</label>
-                <input name ="creditamount" min=1000000 max=10000000 type="number" class="form-control" placeholder="1000000" required>
+                <input name ="creditamount" id ="creditamount" value="{{credit_to_edit.monto}}" min=1000000 max=10000000 type="number" class="form-control" placeholder="1000000" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Plazo en meses</label>
 
-                <input name ="creditterm" min=2 max=48 type="number" class="form-control" placeholder="2 - 48" required>
+                <input name ="creditterm" id ="creditterm" value="{{credit_to_edit.meses}}" min=2 max=48 type="number" class="form-control" placeholder="2 - 48" required>
 
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Interes de crédito</label>
-                <input name ="creditinterest" min=0 max=100 type="number" step="0.01" class="form-control" placeholder="1.2" required>
+                <input name ="creditinterest" id ="creditinterest" value="{{credit_to_edit.interes}}" min=0 max=100 type="number" step="0.01" class="form-control" placeholder="1.2" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Gastos asociados</label>
-                <input name ="creditexpense" min=0 max=10000000 type="number" class="form-control" placeholder="5000" required>
+                <input name ="creditexpense" id ="creditexpense" value="{{credit_to_edit.gastos_asociados}}" min=0 max=10000000 type="number" class="form-control" placeholder="5000" required>
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Seguro Desgravamen</label>
-                <input name ="creditinsurance" min=0 max=10000000 type="number" class="form-control" placeholder="6000" >
+                <input name ="creditinsurance" id ="creditinsurance" value="{{credit_to_edit.seguro_desgravamen}}" min=0 max=10000000 type="number" class="form-control" placeholder="6000" >
             </div>
             <div class="col-sm-4 col-form-label">
                 <label class ="text-light">Seguros extra</label>
-                <input name ="creditinsuranceextra" min=0 max=10000000 type="number" class="form-control" placeholder="6000">
+                <input name ="creditinsuranceextra" id ="creditinsuranceextra" value="{{credit_to_edit.seguros_extra}}" min=0 max=10000000 type="number" class="form-control" placeholder="6000">
             </div>
         </div>
         <button class="btn btn-primary col-md-6 mb-3" name="simulate" type="submit">Simular</button>
