@@ -1,4 +1,4 @@
-import numpy as np
+import numpy_financial as np
 #Cuota mensual fija, con el seguro incluido.
 
 def Cuota(caprestado,interes,cCuotas):
@@ -62,7 +62,7 @@ def Algoritmo(capital,i,meses,gastosAsociados,seguro):
     #calculamos irr
     tir = irr(datos)
     #calculamos cae
-    CAE = cae(tir,meses)
+    CAE = "{0:.2f}".format(cae(tir,meses)) #Nose si redondear o truncar round(cae(tir,meses),2)
     #calculamos intereses acumulados
     acumulados = interes_acumulado(total,meses,i,cuota)
     #calculamos costo total del credito
