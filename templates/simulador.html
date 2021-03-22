@@ -30,7 +30,7 @@ div {text-align: center;}
 
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Interes de crédito</label>
+                <label class ="text-light">Interes Mensual del crédito</label>
                 <input name ="creditinterest" min=0 max=100 type="number" step="0.01" class="form-control" placeholder="1.2" required>
             </div>
             <div class="col-sm-4 col-form-label">
@@ -88,8 +88,8 @@ div {text-align: center;}
                     <td>${{ s.monto_final }}</td>
                     <td>
                     <div class="d-grid gap-2 d-md-block">
-                        <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">edit</button>
-                        <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">delete</a>
+                        <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</button>
+                        <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
                     </div>
                     </td>
                     
