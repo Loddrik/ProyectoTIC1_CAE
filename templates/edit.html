@@ -14,25 +14,25 @@ div {text-align: center;}
     <form method="POST" action="{{credit_to_edit.id}}">
         <div class="form-group row">
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Nombre simulación</label>
+                <label class ="text-light">Nombre simulación(*)</label>
                 <input name ="creditname" type="text" pattern="[a-zA-Z0-9\s]{1,20}" class="form-control" value="{{credit_to_edit.nombre}}" id="creditname" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Monto de crédito</label>
+                <label class ="text-light">Monto de crédito(*)</label>
                 <input name ="creditamount" id ="creditamount" value="{{credit_to_edit.monto}}" min=1000000 max=10000000 type="number" class="form-control" placeholder="1000000" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Plazo en meses</label>
+                <label class ="text-light">Plazo en meses(*)</label>
 
                 <input name ="creditterm" id ="creditterm" value="{{credit_to_edit.meses}}" min=2 max=48 type="number" class="form-control" placeholder="2 - 48" required>
 
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Interes de crédito</label>
+                <label class ="text-light">Interes de crédito(*)</label>
                 <input name ="creditinterest" id ="creditinterest" value="{{credit_to_edit.interes}}" min=0 max=100 type="number" step="0.01" class="form-control" placeholder="1.2" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Gastos asociados</label>
+                <label class ="text-light">Gastos asociados(*)</label>
                 <input name ="creditexpense" id ="creditexpense" value="{{credit_to_edit.gastos_asociados}}" min=0 max=10000000 type="number" class="form-control" placeholder="5000" required>
             </div>
             <div class="col-sm-4 col-form-label">

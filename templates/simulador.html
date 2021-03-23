@@ -16,25 +16,23 @@ div {text-align: center;}
         <div class="form-group row">
 
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Nombre simulación</label>
+                <label class ="text-light">Nombre simulación(*)</label>
                 <input name ="creditname" type="text" pattern="[a-zA-Z0-9\s]{1,20}" class="form-control" placeholder="Santader" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Monto de crédito</label>
+                <label class ="text-light">Monto de crédito(*)</label>
                 <input name ="creditamount" min=1000000 max=10000000 type="number" class="form-control" placeholder="1000000" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Plazo en meses</label>
-
+                <label class ="text-light">Plazo en meses(*)</label>
                 <input name ="creditterm" min=2 max=48 type="number" class="form-control" placeholder="2 - 48" required>
-
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Interes Mensual del crédito</label>
+                <label class ="text-light">Interes Mensual del crédito(*)</label>
                 <input name ="creditinterest" min=0 max=100 type="number" step="0.01" class="form-control" placeholder="1.2" required>
             </div>
             <div class="col-sm-4 col-form-label">
-                <label class ="text-light">Gastos asociados</label>
+                <label class ="text-light">Gastos asociados(*)</label>
                 <input name ="creditexpense" min=0 max=10000000 type="number" class="form-control" placeholder="5000" required>
             </div>
             <div class="col-sm-4 col-form-label">
@@ -70,39 +68,33 @@ div {text-align: center;}
                     <th scope="col">Seguros extra</th>
                     <th scope="col">Monto bruto crédito</th>
                     <th scope="col">Costo total</th>
-                    <th scope="col">_________________</th>
+                    <th scope="col">____________________</th>
 
                 </tr>
                 
                 {%for s in simulaciones%} 
                 <tr class="table-active" style="font-size:13px">
                     <td>{{ s.nombre }}</td>
-                    <td>${{ s.monto }}</td>
+                    <td class="clp">{{ s.monto }}</td>
                     <td>{{ s.meses }}</td>
                     <td>{{ s.cae }}%</td>
                     <td>{{ s.interes }}%</td>
-                    <td>${{ s.gastos_asociados }}</td>
-                    <td>${{ s.seguro_desgravamen }}</td>
-                    <td>${{ s.seguros_extra }}</td>
-                    <td>${{ s.monto_bruto }}</td>
-                    <td>${{ s.monto_final }}</td>
+                    <td class="clp">{{ s.gastos_asociados }}</td>
+                    <td class="clp">{{ s.seguro_desgravamen }}</td>
+                    <td class="clp">{{ s.seguros_extra }}</td>
+                    <td class="clp">{{ s.monto_bruto }}</td>
+                    <td class="clp">{{ s.monto_final }}</td>
                     <td>
-                    <div class="d-grid gap-2 d-md-block">
-                        <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</button>
-                        <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
-                    </div>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</button>
+                            <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
+                        </div>
                     </td>
                     
 
                 </tr>
                 {% endfor %}
-                
-                
             </thead>
-            <tbody>
-
-            </tbody>
         </table>
     </div>
-
 {% endblock %}

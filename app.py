@@ -67,8 +67,14 @@ def sim():
       interes = float(request.form['creditinterest'])
       meses = int(request.form['creditterm'])
       gastos_asociados = int(request.form['creditexpense'])
-      seguro_desgravamen = int(request.form['creditinsurance'])
-      seguros_extra = int(request.form['creditinsuranceextra'])
+      if request.form['creditinsurance']:
+         seguro_desgravamen = int(request.form['creditinsurance'])
+      else:
+         seguro_desgravamen = int(0)
+      if request.form['creditinsuranceextra']:
+         seguros_extra = int(request.form['creditinsuranceextra'])
+      else:
+         seguros_extra = int(0)
       
       tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(capital,interes,
       meses,gastos_asociados,seguro_desgravamen+seguros_extra)
