@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %} 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-1">Simulador CAE</h1>
-    <picture>
-        <img src="https://www.crecemujer.cl/sites/default/files/styles/medium/public/captura_de_pantalla_2017-07-18_a_las_17.32.42.png?itok=waaC-0VX"
-            class="avatar img-fluid img-thumbnail" alt="img-principal">
-    </picture>
-    <div class="pricing-header px-3 py-3 mx-auto text-center">
-
-        <a href= "{{url_for('sim')}}" class="btn btn-success btn-lg btn-block col-md-12 mb-3 px-3 py-3  text-center" role="button">Simular</a>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+    <h1 class="display-1 text-center">Simulador CAE</h1>
+    <div class="card">
+        <h5 class="card-header">¿Que es la CAE?</h5>
+        <div class="card-body">
+          <p class="card-text">La Carga Anual Equivalente (CAE) es un indicador porcentual, que incluye los intereses, gastos y seguros asociados al crédito expresados en forma anual que permiten comparar en forma objetiva el costo del crédito entre entidades.</p>
+           <p> Mediante la CAE, las personas podrán comparar diferentes alternativas de crédito, sin importar las diferencias en las variables que cada entidad tenga establecidas.</p>
+            <p>Una CAE menor es señal de que, financieramente, es la alternativa más conveniente, ya que considera todos elementos del crédito.</p>
+          <div class="pricing-header px-3 py-3 mx-auto text-center">
+            <a href= "{{url_for('sim')}}" class="btn btn-success btn-lg btn-block col-md-12 mb-3 px-3 py-3  text-center" role="button">Simular</a>
+        </div>        
     </div>
+      </div>
+
 </div>
 
 {% endblock %}
