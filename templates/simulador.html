@@ -70,7 +70,7 @@ div {text-align: center;}
             <th scope="col">Total intereses</th>
             <th scope="col">Monto bruto crédito</th>
             <th scope="col">Costo total</th>
-            <th scope="col">_____________________</th>
+            <th scope="col">___________</th>
 
         </tr>
         
@@ -90,8 +90,8 @@ div {text-align: center;}
             <td class="clp">{{ s.monto_final }}</td>
             <td>
                 <div class="d-grid gap-2 d-md-block">
-                    <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</a>
-                    <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
+                    <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit" ><i class="bi bi-pencil"></i></a>
+                    <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit"><i class="bi-trash"></i></a>
                 </div>
             </td>
             
