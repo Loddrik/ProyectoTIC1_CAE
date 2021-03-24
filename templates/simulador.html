@@ -59,13 +59,14 @@ div {text-align: center;}
                 <tr class="table-active" style="font-size:14px">
                     <th scope="col">Simulación</th>
                     <th scope="col">Monto Solicitado</th>
+                    <th scope="col">Valor cuota</th>
                     <th scope="col">N° Cuotas</th>
                     <th scope="col">CAE</th>
                     <th scope="col">Tasa de interés mensual</th>
                     <th scope="col">Gastos asociados</th>
-                    <th scope="col">Total intereses</th>
                     <th scope="col">Seguro Desgravamen</th>
                     <th scope="col">Seguros extra</th>
+                    <th scope="col">Total intereses</th>
                     <th scope="col">Monto bruto crédito</th>
                     <th scope="col">Costo total</th>
                     <th scope="col">_____________________</th>
@@ -76,13 +77,14 @@ div {text-align: center;}
                 <tr class="table-active" style="font-size:13px">
                     <td>{{ s.nombre }}</td>
                     <td class="clp">{{ s.monto }}</td>
+                    <td class="clp">{{ s.cuota }}</td>
                     <td>{{ s.meses }}</td>
                     <td>{{ s.cae }}%</td>
                     <td>{{ s.interes }}%</td>
                     <td class="clp">{{ s.gastos_asociados }}</td>
-                    <td class="clp">{{ s.interes_total }}</td>
                     <td class="clp">{{ s.seguro_desgravamen }}</td>
                     <td class="clp">{{ s.seguros_extra }}</td>
+                    <td class="clp">{{ s.interes_total }}</td>
                     <td class="clp">{{ s.monto_bruto }}</td>
                     <td class="clp">{{ s.monto_final }}</td>
                     <td>
