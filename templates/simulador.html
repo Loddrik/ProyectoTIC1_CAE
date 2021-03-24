@@ -48,55 +48,57 @@ div {text-align: center;}
     </form>
 </div>
 <!-------------------------------------------------------------------------->
+{% if simulaciones|length < 1%}    
+
+{%else %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-1 mx-auto text-center">
-            <h1 class="display-4">Comparador</h1>
-        
-    </div>
-        
-        <table class="table-responsive-sm table-dark table-bordered table-striped pricing-header mx-auto text-center">
-    
-            <thead>
-                <tr class="table-active" style="font-size:14px">
-                    <th scope="col">Simulación</th>
-                    <th scope="col">Monto Solicitado</th>
-                    <th scope="col">Valor cuota</th>
-                    <th scope="col">N° Cuotas</th>
-                    <th scope="col">CAE</th>
-                    <th scope="col">Tasa de interés mensual</th>
-                    <th scope="col">Gastos asociados</th>
-                    <th scope="col">Seguro Desgravamen</th>
-                    <th scope="col">Seguros extra</th>
-                    <th scope="col">Total intereses</th>
-                    <th scope="col">Monto bruto crédito</th>
-                    <th scope="col">Costo total</th>
-                    <th scope="col">_____________________</th>
+    <h1 class="display-4">Comparador</h1>
+</div>
+<table class="table-responsive-sm table-dark table-bordered table-striped pricing-header mx-auto text-center">
 
-                </tr>
-                
-                {%for s in simulaciones%} 
-                <tr class="table-active" style="font-size:13px">
-                    <td>{{ s.nombre }}</td>
-                    <td class="clp">{{ s.monto }}</td>
-                    <td class="clp">{{ s.cuota }}</td>
-                    <td>{{ s.meses }}</td>
-                    <td>{{ s.cae }}%</td>
-                    <td>{{ s.interes }}%</td>
-                    <td class="clp">{{ s.gastos_asociados }}</td>
-                    <td class="clp">{{ s.seguro_desgravamen }}</td>
-                    <td class="clp">{{ s.seguros_extra }}</td>
-                    <td class="clp">{{ s.interes_total }}</td>
-                    <td class="clp">{{ s.monto_bruto }}</td>
-                    <td class="clp">{{ s.monto_final }}</td>
-                    <td>
-                        <div class="d-grid gap-2 d-md-block">
-                            <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</a>
-                            <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
-                        </div>
-                    </td>
-                    
+    <thead>
+        <tr class="table-active" style="font-size:14px">
+            <th scope="col">Simulación</th>
+            <th scope="col">Monto Solicitado</th>
+            <th scope="col">Valor cuota</th>
+            <th scope="col">N° Cuotas</th>
+            <th scope="col">CAE</th>
+            <th scope="col">Tasa de interés mensual</th>
+            <th scope="col">Gastos asociados</th>
+            <th scope="col">Seguro Desgravamen</th>
+            <th scope="col">Seguros extra</th>
+            <th scope="col">Total intereses</th>
+            <th scope="col">Monto bruto crédito</th>
+            <th scope="col">Costo total</th>
+            <th scope="col">_____________________</th>
 
-                </tr>
-                {% endfor %}
-            </thead>
-        </table>
+        </tr>
+        
+        {%for s in simulaciones%} 
+        <tr class="table-active" style="font-size:13px">
+            <td>{{ s.nombre }}</td>
+            <td class="clp">{{ s.monto }}</td>
+            <td class="clp">{{ s.cuota }}</td>
+            <td>{{ s.meses }}</td>
+            <td>{{ s.cae }}%</td>
+            <td>{{ s.interes }}%</td>
+            <td class="clp">{{ s.gastos_asociados }}</td>
+            <td class="clp">{{ s.seguro_desgravamen }}</td>
+            <td class="clp">{{ s.seguros_extra }}</td>
+            <td class="clp">{{ s.interes_total }}</td>
+            <td class="clp">{{ s.monto_bruto }}</td>
+            <td class="clp">{{ s.monto_final }}</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a class="btn btn-primary btn-sm" href="/edit/{{s.id}}" method="post" type="submit">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/delete/{{s.id}}" method="get" type="submit">Eliminar</a>
+                </div>
+            </td>
+            
+
+        </tr>
+        {% endfor %}
+    </thead>
+</table>
+{%endif%}
 {% endblock %}
