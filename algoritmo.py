@@ -1,4 +1,4 @@
-import numpy_financial as np
+import numpy as np
 #Cuota mensual fija, con el seguro incluido.
 
 def Cuota(caprestado,interes,cCuotas):
