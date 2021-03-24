@@ -81,7 +81,10 @@ def sim():
 
       sim = Sim(nombre,capital,interes,meses,gastos_asociados,seguro_desgravamen,seguros_extra,int(cuota),tir,cae,int(interes_total),int(monto_bruto),int(monto_final))
       db.session.add(sim)
+      #db.session.query.order_by(Sim.monto_final.desc())
+
       db.session.commit()
+
       # flash('Guardado correctamente')
       return redirect('/simulador')
 
@@ -113,13 +116,13 @@ def edit(id):
       credit_to_edit.meses = int(request.form['creditterm'])
       credit_to_edit.gastos_asociados = int(request.form['creditexpense'])
       if request.form['creditinsurance']:
-             seguro_desgravamen = int(request.form['creditinsurance'])
+         credit_to_edit.seguro_desgravamen = int(request.form['creditinsurance'])
       else:
-         seguro_desgravamen = int(0)
+         credit_to_edit.seguro_desgravamen = int(0)
       if request.form['creditinsuranceextra']:
-         seguros_extra = int(request.form['creditinsuranceextra'])
+         credit_to_edit.seguros_extra = int(request.form['creditinsuranceextra'])
       else:
-         seguros_extra = int(0)
+         credit_to_edit.seguros_extra = int(0)
       
       tir,cae,interes_total,monto_bruto, monto_final,cuota= Algoritmo(credit_to_edit.monto, credit_to_edit.interes,
       credit_to_edit.meses, credit_to_edit.gastos_asociados, credit_to_edit.seguro_desgravamen + credit_to_edit.seguros_extra)
